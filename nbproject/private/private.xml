@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/WEB-INF/glassfish-resources.xml</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/sessionBean/AnhDAO.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/conf/persistence.xml</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/sessionBean/NguoiDungDAO.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/sessionBean/QuyenSachDAO.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/sessionBean/DauSachDAO.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/WEB-INF/web.xml</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/home.jsp</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/sessionBean/ReviewSachDAO.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/sessionBean/AbstractSessionBean.java</file>
+        </group>
+    </open-files>
+</project-private>
