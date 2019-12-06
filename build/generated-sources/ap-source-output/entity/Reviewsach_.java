@@ -2,21 +2,21 @@ package entity;
 
 import entity.DauSach;
 import entity.NguoiDung;
-import entity.ReviewsachPK;
+import entity.ReviewSachPK;
 import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-11-25T23:51:30")
-@StaticMetamodel(Reviewsach.class)
-public class Reviewsach_ { 
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-12-06T19:20:57")
+@StaticMetamodel(ReviewSach.class)
+public class ReviewSach_ { 
 
-    public static volatile SingularAttribute<Reviewsach, ReviewsachPK> reviewsachPK;
-    public static volatile SingularAttribute<Reviewsach, String> review;
-    public static volatile SingularAttribute<Reviewsach, Date> ngayReview;
-    public static volatile SingularAttribute<Reviewsach, DauSach> dauSach;
-    public static volatile SingularAttribute<Reviewsach, NguoiDung> nguoiDung;
-    public static volatile SingularAttribute<Reviewsach, Short> soSao;
+    public static volatile SingularAttribute<ReviewSach, ReviewSachPK> reviewSachPK;
+    public static volatile SingularAttribute<ReviewSach, String> review;
+    public static volatile SingularAttribute<ReviewSach, Date> ngayReview;
+    public static volatile SingularAttribute<ReviewSach, DauSach> dauSach;
+    public static volatile SingularAttribute<ReviewSach, NguoiDung> nguoiDung;
+    public static volatile SingularAttribute<ReviewSach, Short> soSao;
 
 }

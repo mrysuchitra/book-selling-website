@@ -17,14 +17,14 @@
     </head>
     <body>
         <h1></h1>
-        <form action="addBook.java" method="post">
+        <form action="addBook.java" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="tenSach">Tên sách</label>
               <input type="text" class="form-control" id="tenSach" placeholder="Nhập tên sách" name="tenSach">
             </div>
             <div class="form-group">
               <label for="namXuatBan">Năm xuất bản</label>
-              <input type="year" class="form-control" id="namXuatBan" placeholder="Năm xuất bản" name="namXuatBan">
+              <input type="text" class="form-control" id="namXuatBan" placeholder="Năm xuất bản" name="namXuatBan">
             </div>
             <div class="form-group">
               <label for="theLoai">Thể loại</label>

@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sessionBean.DauSachDAO;
 
 /**
  *
@@ -75,9 +76,17 @@ public class addBook extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String tenSach = request.getParameter("tenSach");
-        Short namXuatBan = request.getParameter("namXuatBan");
+        Short namXuatBan = Short.parseShort(request.getParameter("namXuatBan"));
         String theLoai = request.getParameter("theLoai");
-        DauSach dauSach = new (DauSach) 
+        String anhBia = request.getParameter("anhBia");
+        
+        DauSach dauSach = new DauSach();
+        dauSach.setTenSach(tenSach);
+        dauSach.setNamSuatBan(namXuatBan);
+        dauSach.setTheLoai(theLoai);
+        dauSach.setUrlAnh(anhBia);
+        
+        new DauSachDAO().create(dauSach);
     }
 
     /**
