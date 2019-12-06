@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import services.DauSachService;
+import entity.DauSach;
+import java.util.List;
 
 /**
  *
@@ -20,8 +23,14 @@ public class home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()){
-        Object data = request.getQueryString();
-        request.setAttribute("data", data);
+//        Object data = request.getQueryString();
+//        request.setAttribute("data", data);
+        DauSachService dauSachService=new DauSachService();
+        List<DauSach> all= dauSachService.getAll();
+        request.setAttribute("allBook", all);
+        
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         request.getRequestDispatcher("/home.jsp").forward(request, response);
         }
     }

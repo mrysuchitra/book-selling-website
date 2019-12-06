@@ -5,22 +5,21 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Shop Homepage - Start Bootstrap Template</title>
+  <title>Book store</title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
 
@@ -76,22 +75,30 @@
         </div>
 
         <div class="row">
-
-            <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item One</a>
-                </h4>
-                <h5>$1</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
+            <c:forEach items="${allBook}" var="book">
+                <tr>      
+                    <td>${festival.festivalName}</td>
+                    <td>${festival.location}</td>
+                    <td>${festival.startDate}</td>
+                    <td>${festival.endDate}</td>
+                    <td>${festival.URL}</td>  
+                </tr>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                      <a href="#"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a href="#">${book.getTenSach()}</a>
+                        </h4>
+                        <p>${book.getTheLoai()}</p>
+                        <p class="card-text">Description..... ti?n</p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                      </div>
+                    </div>
+                  </div>
+            </c:forEach>
 
         </div>
         <!-- /.row -->

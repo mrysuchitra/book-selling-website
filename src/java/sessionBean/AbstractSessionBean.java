@@ -18,7 +18,10 @@ public abstract class AbstractSessionBean<T> {
     protected abstract EntityManager getEntityManager();
 
     public void create(T entity) {
+//        getEntityManager().joinTransaction() ;
+//        getEntityManager().flush();
         getEntityManager().persist(entity);
+//        System.out.println("created");
     }
 
     public void edit(T entity) {
@@ -34,6 +37,7 @@ public abstract class AbstractSessionBean<T> {
     }
 
     public List<T> findAll() {
+
         javax.persistence.criteria.CriteriaQuery cq
                 = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
