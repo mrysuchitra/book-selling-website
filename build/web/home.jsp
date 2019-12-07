@@ -5,7 +5,7 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page pageEncoding="UTF-8"%>
+<%@page contentType = "text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +37,7 @@
 
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
+          <a href="#" class="list-group-item">Tiếng Việt</a>
           <a href="#" class="list-group-item">Category 2</a>
           <a href="#" class="list-group-item">Category 3</a>
         </div>
@@ -91,7 +91,7 @@
                           <a href="#">${book.getTenSach()}</a>
                         </h4>
                         <p>${book.getTheLoai()}</p>
-                        <p class="card-text">Description..... ti?n</p>
+                        <p class="card-text">Description..... tiến</p>
                       </div>
                       <div class="card-footer">
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -117,7 +117,7 @@
   
   <!-- Bootstrap core JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> 
 
 </body>
 

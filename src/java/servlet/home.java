@@ -29,8 +29,8 @@ public class home extends HttpServlet {
         List<DauSach> all= dauSachService.getAll();
         request.setAttribute("allBook", all);
         
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("utf-8");
+//        response.setContentType("text/html;charset=UTF-8");
+//        request.setCharacterEncoding("utf-8");
         request.getRequestDispatcher("/home.jsp").forward(request, response);
         }
     }
