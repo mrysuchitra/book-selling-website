@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -79,7 +80,7 @@ public class fileUploadHandler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
         //process only if its multipart content
         if(ServletFileUpload.isMultipartContent(request)){
             try {
@@ -104,7 +105,10 @@ public class fileUploadHandler extends HttpServlet {
                                  "Sorry this Servlet only handles file upload request");
         }
      
-        request.getRequestDispatcher("/result.jsp").forward(request, response);
+        System.out.println("i was called fileuploader");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/addBook");
+        dispatcher.forward(request, response);
+        //request.getRequestDispatcher("<%=request.getContextPath()%>/addBook").forward(request, response);
     }
 
     /**

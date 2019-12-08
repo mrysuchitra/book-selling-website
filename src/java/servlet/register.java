@@ -20,7 +20,8 @@ public class register extends HttpServlet {
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
+                //request.setCharacterEncoding("utf-8");
+                String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String ten = request.getParameter("name");
                 String diaChi=request.getParameter("address");

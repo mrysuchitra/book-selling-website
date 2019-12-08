@@ -6,13 +6,21 @@
 package servlet;
 
 import entity.DauSach;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
+import services.DauSachService;
 import sessionBean.DauSachDAO;
+import taskHandling.fileUploadHandler;
 
 /**
  *
@@ -20,7 +28,8 @@ import sessionBean.DauSachDAO;
  */
 public class addBook extends HttpServlet {
 
-    /**
+    
+    private final String UPLOAD_DIRECTORY = "E:\\BTL_CNPM_image";/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -28,7 +37,7 @@ public class addBook extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */
+     */  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -59,7 +68,6 @@ public class addBook extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        DauSach dauSach = new DauSach();
         
     }
 
@@ -75,8 +83,35 @@ public class addBook extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String tenSach = request.getParameter("tenSach");
-        Short namXuatBan = Short.parseShort(request.getParameter("namXuatBan"));
+        HttpServletRequest requestTmp = request;
+//        if(ServletFileUpload.isMultipartContent(request)){
+//            try {
+//                List<FileItem> multiparts = new ServletFileUpload(
+//                                         new DiskFileItemFactory()).parseRequest(request);
+//               
+//                for(FileItem item : multiparts){
+//                    if(!item.isFormField()){
+//                        String name = new File(item.getName()).getName();
+//                        item.write( new File(UPLOAD_DIRECTORY + File.separator + name));
+//                    }
+//                }
+//            
+//               //File uploaded successfully
+//               request.setAttribute("message", "File Uploaded Successfully");
+//            } catch (Exception ex) {
+//               request.setAttribute("message", "File Upload Failed due to " + ex);
+//            }          
+//          
+//        }else{
+//            request.setAttribute("message",
+//                                 "Sorry this Servlet only handles file upload request");
+//        }
+        
+        String tenSach = requestTmp.getParameter("tenSach");
+        System.out.println("Đây là" +tenSach);
+        String ok = request.getParameter("namXuatBan");
+        if (ok == null) {System.out.println("Looxi null");}
+        short namXuatBan = Short.parseShort((String)request.getParameter("namXuatBan"));
         String theLoai = request.getParameter("theLoai");
         String anhBia = request.getParameter("anhBia");
         
@@ -86,7 +121,8 @@ public class addBook extends HttpServlet {
         dauSach.setTheLoai(theLoai);
         dauSach.setUrlAnh(anhBia);
         
-        new DauSachDAO().create(dauSach);
+        new DauSachService().create(dauSach);
+        System.out.println("i was called");
     }
 
     /**
