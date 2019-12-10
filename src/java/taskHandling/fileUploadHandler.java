@@ -24,7 +24,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author 1920
  */
-@WebServlet(name = "fileUploadHandler", urlPatterns = {"/fileUploadHandler"})
+@WebServlet(name = "fileUploadHandler", urlPatterns = {"/upload"})
 public class fileUploadHandler extends HttpServlet {
     private final String UPLOAD_DIRECTORY = "E:\\BTL_CNPM_image";
 
@@ -107,7 +107,7 @@ public class fileUploadHandler extends HttpServlet {
      
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/home");
         dispatcher.forward(request, response);
-        //request.getRequestDispatcher("<%=request.getContextPath()%>/addBook").forward(request, response);
+        request.getRequestDispatcher("<%=request.getContextPath()%>/addBook").forward(request, response);
     }
 
     /**

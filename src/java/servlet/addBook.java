@@ -29,7 +29,7 @@ import taskHandling.fileUploadHandler;
 public class addBook extends HttpServlet {
 
     
-    private final String UPLOAD_DIRECTORY = "E:\\BTL_CNPM_image";/**
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *

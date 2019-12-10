@@ -47,29 +47,4 @@ public class DauSachService {
         }
         return false;
     }
-    public ArrayList<QuyenSach> getQuyenSachByDauSach(int id, int quantity) {
-        ArrayList<QuyenSach> listQuyenSach = new ArrayList<>();
-        try {            
-            InitialContext initContext = new InitialContext();
-            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
-            Connection conn = ds.getConnection();
-            String sql = "Select top " + quantity + " from QuyenSach where maDauSach = " + id;
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                QuyenSach quyenSach = new QuyenSach();
-                quyenSach.setMaQuyenSach(rs.getInt("maQuyenSach"));
-                quyenSach.setMaDauSach(new DauSachDAO().find(rs.getInt("maDauSach")));
-                quyenSach.setNguoiBan(new NguoiDungDAO().find(rs.getString("nguoiBan")));
-                quyenSach.setNgayDang(rs.getDate("ngayDang"));
-                quyenSach.setTinhTrang(rs.getString("tinhTrang"));
-                quyenSach.setConHang(rs.getBoolean("conHang"));
-
-                listQuyenSach.add(quyenSach);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return listQuyenSach;
-    }
 }
