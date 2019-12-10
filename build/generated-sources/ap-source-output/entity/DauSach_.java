@@ -7,7 +7,8 @@ import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-12-09T16:23:16")
+
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-12-07T03:31:02")
 @StaticMetamodel(DauSach.class)
 public class DauSach_ { 
 
@@ -17,6 +18,7 @@ public class DauSach_ {
     public static volatile SingularAttribute<DauSach, Short> namSuatBan;
     public static volatile CollectionAttribute<DauSach, ReviewSach> reviewSachCollection;
     public static volatile SingularAttribute<DauSach, Integer> maDauSach;
+    public static volatile SingularAttribute<DauSach, String> moTa;
     public static volatile CollectionAttribute<DauSach, QuyenSach> quyenSachCollection;
 
 }

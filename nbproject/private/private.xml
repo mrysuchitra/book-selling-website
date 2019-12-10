@@ -3,12 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/addBook.java</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/taskHandling/fileUploadHandler.java</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/web/WEB-INF/web.xml</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/nbproject/build-impl.xml</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/web/addBook.jsp</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/web/addBookImage.jsp</file>
+<!--
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/book.jsp</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/entity/QuyenSach.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/entity/Anh.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/entity/ReviewSach.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/book.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/login.jsp</file>
+-->
+
         </group>
     </open-files>
 </project-private>

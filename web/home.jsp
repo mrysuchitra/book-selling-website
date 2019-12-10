@@ -37,9 +37,12 @@
 
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Tiếng Việt</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+
+        <c:forEach items="${theLoai}" var="cate">
+            <a href="/book-selling-web/category?category=${cate}" class="list-group-item">${cate}</a>
+        </c:forEach>
+          
+
         </div>
 
       </div>
@@ -76,28 +79,26 @@
 
         <div class="row">
             <c:forEach items="${allBook}" var="book">
-                <tr>      
-                    <td>${festival.festivalName}</td>
-                    <td>${festival.location}</td>
-                    <td>${festival.startDate}</td>
-                    <td>${festival.endDate}</td>
-                    <td>${festival.URL}</td>  
-                </tr>
+                <a href="/book-selling-web/book?id=${book.getMaDauSach()}">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                      <a href="/product?id=${book.getMaDauSach()}"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
+
+                      <a href="/book-selling-web/book?id=${book.getMaDauSach()}"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
+
                       <div class="card-body">
                         <h4 class="card-title">
-                          <a href="#">${book.getTenSach()}</a>
+                          <a href="/book-selling-web/book?id=${book.getMaDauSach()}">${book.getTenSach()}</a>
                         </h4>
                         <p>${book.getTheLoai()}</p>
-                        <p class="card-text">Description..... tiến</p>
+
+                        <p class="card-text">${book.getMoTa()}</p>
                       </div>
                       <div class="card-footer">
                         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                       </div>
                     </div>
                   </div>
+                  </a>
             </c:forEach>
 
         </div>

@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "DauSach.findByTenSach", query = "SELECT d FROM DauSach d WHERE d.tenSach = :tenSach")
     , @NamedQuery(name = "DauSach.findByNamSuatBan", query = "SELECT d FROM DauSach d WHERE d.namSuatBan = :namSuatBan")
     , @NamedQuery(name = "DauSach.findByUrlAnh", query = "SELECT d FROM DauSach d WHERE d.urlAnh = :urlAnh")
-    , @NamedQuery(name = "DauSach.findByTheLoai", query = "SELECT d FROM DauSach d WHERE d.theLoai = :theLoai")})
+    , @NamedQuery(name = "DauSach.findByTheLoai", query = "SELECT d FROM DauSach d WHERE d.theLoai = :theLoai")
+    , @NamedQuery(name = "DauSach.findByMoTa", query = "SELECT d FROM DauSach d WHERE d.moTa = :moTa")})
 public class DauSach implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -58,6 +59,9 @@ public class DauSach implements Serializable {
     @Size(max = 30)
     @Column(name = "theLoai")
     private String theLoai;
+    @Size(max = 500)
+    @Column(name = "moTa")
+    private String moTa;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maDauSach")
     private Collection<QuyenSach> quyenSachCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dauSach")
@@ -113,6 +117,14 @@ public class DauSach implements Serializable {
 
     public void setTheLoai(String theLoai) {
         this.theLoai = theLoai;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 
     @XmlTransient

@@ -22,12 +22,15 @@ import java.util.List;
 public class home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()){
 //        Object data = request.getQueryString();
 //        request.setAttribute("data", data);
         DauSachService dauSachService=new DauSachService();
         List<DauSach> all= dauSachService.getAll();
+        List<String> theLoai=dauSachService.getTheLoai();
         request.setAttribute("allBook", all);
+        request.setAttribute("theLoai", theLoai);        
         
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");

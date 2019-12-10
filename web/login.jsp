@@ -33,7 +33,7 @@
 
               <div class="form-label-group">
                 <label for="inputPassword">Password</label>
-                <input type="password" id="inputPassword" name="password"class="form-control" placeholder="Password" required>
+                <input class="form-control" type="password" id="inputPassword" name="password"class="form-control" placeholder="Password" required>
               </div>
 
               <div class="custom-control custom-checkbox mb-3">
@@ -44,6 +44,8 @@
                 String err = request.getParameter("err");
                 if ("1".equals(err)) {
                         out.print("<h5 style=\"color: red;\">wrong email or password</h5>");
+                }else if("2".equals(err)){
+                    out.print("<h5 style=\"color: red;\">Please login fisrt!</h5>");
                 }
                 %>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>

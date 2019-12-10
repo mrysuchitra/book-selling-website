@@ -6,6 +6,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -44,7 +46,7 @@ public class ReviewSach implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "soSao")
-    private short soSao;
+    private int soSao;
     @Size(max = 500)
     @Column(name = "review")
     private String review;
@@ -67,9 +69,10 @@ public class ReviewSach implements Serializable {
         this.reviewSachPK = reviewSachPK;
     }
 
-    public ReviewSach(ReviewSachPK reviewSachPK, short soSao, Date ngayReview) {
+    public ReviewSach(ReviewSachPK reviewSachPK, int soSao, String review, Date ngayReview) {
         this.reviewSachPK = reviewSachPK;
         this.soSao = soSao;
+        this.review=review;
         this.ngayReview = ngayReview;
     }
 
@@ -85,7 +88,7 @@ public class ReviewSach implements Serializable {
         this.reviewSachPK = reviewSachPK;
     }
 
-    public short getSoSao() {
+    public int getSoSao() {
         return soSao;
     }
 
@@ -101,8 +104,9 @@ public class ReviewSach implements Serializable {
         this.review = review;
     }
 
-    public Date getNgayReview() {
-        return ngayReview;
+    public String getNgayReview() {
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        return df.format(ngayReview);
     }
 
     public void setNgayReview(Date ngayReview) {

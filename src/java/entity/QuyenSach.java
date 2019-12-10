@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -71,7 +72,6 @@ public class QuyenSach implements Serializable {
     private Collection<DaMua> daMuaCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maQuyenSach")
     private Collection<Anh> anhCollection;
-
     public QuyenSach() {
     }
 
@@ -84,7 +84,15 @@ public class QuyenSach implements Serializable {
         this.ngayDang = ngayDang;
         this.conHang = conHang;
     }
-
+    
+//    public void setUrlAnh(List<String> input){
+//        this.urlAnh=input;
+//    }
+//    
+//    public List<String> getUrlAnh(){
+//        return this.urlAnh;
+//    }
+    
     public Integer getMaQuyenSach() {
         return maQuyenSach;
     }
