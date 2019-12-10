@@ -105,8 +105,7 @@ public class fileUploadHandler extends HttpServlet {
                                  "Sorry this Servlet only handles file upload request");
         }
      
-        System.out.println("i was called fileuploader");
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/addBook");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/home");
         dispatcher.forward(request, response);
         //request.getRequestDispatcher("<%=request.getContextPath()%>/addBook").forward(request, response);
     }

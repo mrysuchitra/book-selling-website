@@ -5,31 +5,25 @@
  */
 package servlet;
 
-import entity.DauSach;
-import java.io.File;
+import entity.QuyenSach;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 import services.DauSachService;
-import sessionBean.DauSachDAO;
-import taskHandling.fileUploadHandler;
 
 /**
  *
  * @author 1920
  */
-public class addBook extends HttpServlet {
+public class product extends HttpServlet {
 
-    
-    private final String UPLOAD_DIRECTORY = "E:\\BTL_CNPM_image";/**
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -37,7 +31,7 @@ public class addBook extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */  
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,10 +40,10 @@ public class addBook extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addBook</title>");            
+            out.println("<title>Servlet product</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addBook at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet product at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -68,7 +62,28 @@ public class addBook extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        //int id = Integer.parseInt(request.getParameter("id"));
+//        int page = 1;
+//        int recordsPerPage = 5;
+//        if(request.getParameter("page")) != null)
+//            page = Integer.parseInt(request.getParameter("page"));
+//        DauSachService dao = new DauSachService();
+//        List<QuyenSach> list = dao.getQuyenSachByDauSach((page-1)*recordsPerPage, recordsPerPage);
+//        int noOfRecords = dao.getSoLuongSachByDauSach();
+//        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+//        request.setAttribute("quyenSachList", list);
+//        request.setAttribute("noOfPages", noOfPages);
+//        request.setAttribute("currentPage", page);
+        RequestDispatcher view = request.getRequestDispatcher("/product.jsp");
+        view.forward(request, response);
         
+        
+//        ArrayList<QuyenSach> list = new DauSachService().getQuyenSachByDauSach(0, 5);
+//        request.setAttribute("quyenSach", list);
+//        
+//        response.setContentType("text/html;charset=UTF-8");
+//        request.setCharacterEncoding("utf-8");
+//        request.getRequestDispatcher("/product.jsp").forward(request, response);
     }
 
     /**
@@ -82,25 +97,7 @@ public class addBook extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-              
-        String tenSach = request.getParameter("tenSach");
-        short namXuatBan = Short.parseShort((String)request.getParameter("namXuatBan"));
-        String theLoai = request.getParameter("theLoai");
-        String anhBia = request.getParameter("tenSach");
-        
-        DauSach dauSach = new DauSach();
-        
-        dauSach.setTenSach(tenSach);
-        dauSach.setNamSuatBan(namXuatBan);
-        dauSach.setTheLoai(theLoai);
-        dauSach.setUrlAnh("/image/" + anhBia + ".jpg");
-        
-        new DauSachService().create(dauSach);
-        
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("/addBookImage.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

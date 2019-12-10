@@ -85,7 +85,7 @@
                 </tr>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                      <a href="#"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
+                      <a href="/product?id=${book.getMaDauSach()}"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
                       <div class="card-body">
                         <h4 class="card-title">
                           <a href="#">${book.getTenSach()}</a>

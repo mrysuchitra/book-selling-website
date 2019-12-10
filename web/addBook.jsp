@@ -34,7 +34,7 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <form  action="<%=request.getContextPath()%>/addBook" method="POST" enctype="multipart/form-data">
+        <form  action="<%=request.getContextPath()%>/addBook" method="POST" >
             <div class="container">
             <div class="form-group">
               <label for="tenSach">Tên sách</label>
@@ -47,10 +47,6 @@
             <div class="form-group">
               <label for="theLoai">Thể loại</label>
               <input type="text" class="form-control" id="theLoai" placeholder="Thể loại" name="theLoai">
-            </div>
-            <div class="form-group">
-              <label for="anhBia">Ảnh bìa</label>
-              <input type="file" class="form-control" id="anhBia" name="anhBia">
             </div>
             <button type="submit" class="btn btn-primary">Xác nhận</button>
             </div>
