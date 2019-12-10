@@ -13,9 +13,10 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class AnhDAO extends AbstractSessionBean<Anh> {
-
     @PersistenceContext(unitName = "book-selling-webPU")
-    private EntityManager em; 
+    private EntityManager em;
+//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("book-selling-webPU");
+//    private EntityManager em = emf.createEntityManager(); 
 
     protected EntityManager getEntityManager() {
         return em;

@@ -50,7 +50,7 @@ public class Anh implements Serializable {
     }
 
     public String getTenAnh() {
-        return tenAnh;
+        return tenAnh.replaceAll("\'", "");
     }
 
     public void setTenAnh(String tenAnh) {

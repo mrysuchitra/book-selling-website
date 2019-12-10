@@ -13,8 +13,12 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class QuyenSachDAO extends AbstractSessionBean<QuyenSach> {
-    @PersistenceContext(unitName = "book-selling-webPU")
-    private EntityManager em; 
+    
+
+//    @PersistenceContext(unitName = "book-selling-webPU")
+//    private EntityManager em;book-selling-webPU
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("book-selling-webPU");
+    private EntityManager em = emf.createEntityManager(); 
 
     protected EntityManager getEntityManager() {
         return em;

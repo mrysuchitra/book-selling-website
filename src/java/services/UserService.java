@@ -67,7 +67,8 @@ public class UserService {
             DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
             Connection conn = ds.getConnection();
             Statement sttm = conn.createStatement();
-            String sql = "Insert into NguoiDung " + "values  ('"+nguoiDung.getUsername()+"','"+nguoiDung.getTen()+"','"+nguoiDung.getPwd()+"',N'"+nguoiDung.getDiaChi()+"','"+nguoiDung.getSoDienThoai()+"')";
+            System.out.println(nguoiDung.getTen() + "+++++++"+nguoiDung.getDiaChi());
+            String sql = "Insert into NguoiDung " + "values  ('"+nguoiDung.getUsername()+"',N'"+nguoiDung.getTen()+"','"+nguoiDung.getPwd()+"',N'"+nguoiDung.getDiaChi()+"','"+nguoiDung.getSoDienThoai()+"')";
             sttm.execute(sql);
             return true;
         } catch (Exception ex) {

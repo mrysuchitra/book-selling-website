@@ -20,6 +20,7 @@ public class NguoiDungDAO extends AbstractSessionBean<NguoiDung> {
     private EntityManager em = emf.createEntityManager(); 
 
     protected EntityManager getEntityManager() {
+        System.out.println(em);
         return em;
     }
 
