@@ -24,9 +24,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author 1920
  */
-@WebServlet(name = "fileUploadHandler", urlPatterns = {"/upload"})
 public class fileUploadHandler extends HttpServlet {
-    private final String UPLOAD_DIRECTORY = "E:\\BTL_CNPM_image";
+    private final String UPLOAD_DIRECTORY_BOOK = "E:\\BTL_CNPM_image\\DauSach";
+    private final String UPLOAD_DIRECTORY_PRODUCT = "E:\\BTL_CNPM_image\\QuyenSach";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -90,7 +90,13 @@ public class fileUploadHandler extends HttpServlet {
                 for(FileItem item : multiparts){
                     if(!item.isFormField()){
                         String name = new File(item.getName()).getName();
-                        item.write( new File(UPLOAD_DIRECTORY + File.separator + name));
+                        //Object name = request.getAttribute("fileName2");
+                        //if(request.getAttribute("uploadObject").equals("DauSach")){
+                            item.write( new File(UPLOAD_DIRECTORY_BOOK + File.separator + name));
+                        //}
+                        //else if(request.getAttribute("uploadObject").equals("QuyenSach")){
+                        //    item.write( new File(UPLOAD_DIRECTORY_PRODUCT + File.separator + name));
+                        //}
                     }
                 }
             
@@ -105,9 +111,9 @@ public class fileUploadHandler extends HttpServlet {
                                  "Sorry this Servlet only handles file upload request");
         }
      
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/home");
-        dispatcher.forward(request, response);
-        request.getRequestDispatcher("<%=request.getContextPath()%>/addBook").forward(request, response);
+        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/home");
+        //dispatcher.forward(request, response);
+        request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 
     /**

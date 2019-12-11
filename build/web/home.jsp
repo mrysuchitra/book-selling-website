@@ -37,11 +37,12 @@
 
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
-        
+
         <c:forEach items="${theLoai}" var="cate">
             <a href="/book-selling-web/category?category=${cate}" class="list-group-item">${cate}</a>
         </c:forEach>
           
+
         </div>
 
       </div>
@@ -81,12 +82,15 @@
                 <a href="/book-selling-web/book?id=${book.getMaDauSach()}">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
+
                       <a href="/book-selling-web/book?id=${book.getMaDauSach()}"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
+
                       <div class="card-body">
                         <h4 class="card-title">
                           <a href="/book-selling-web/book?id=${book.getMaDauSach()}">${book.getTenSach()}</a>
                         </h4>
                         <p>${book.getTheLoai()}</p>
+
                         <p class="card-text">${book.getMoTa()}</p>
                       </div>
                       <div class="card-footer">

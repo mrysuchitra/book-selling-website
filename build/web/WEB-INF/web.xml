@@ -33,13 +33,17 @@
         <servlet-name>FileUploadHandler</servlet-name>
         <servlet-class>taskHandling.fileUploadHandler</servlet-class>
     </servlet>
-    <servlet>    
+    <!--<servlet>
         <servlet-name>category</servlet-name>
         <servlet-class>servlet.category</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>book</servlet-name>
         <servlet-class>servlet.book</servlet-class>
+    </servlet>-->
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>servlet.addProduct</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -69,13 +73,17 @@
         <servlet-name>FileUploadHandler</servlet-name>
         <url-pattern>/upload</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <!--<servlet-mapping>
         <servlet-name>category</servlet-name>
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>book</servlet-name>
         <url-pattern>/book</url-pattern>
+    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

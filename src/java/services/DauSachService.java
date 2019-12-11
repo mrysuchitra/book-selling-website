@@ -23,9 +23,11 @@ import sessionBean.DauSachDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import sessionBean.NguoiDungDAO;
 
@@ -57,13 +59,18 @@ public class DauSachService {
             String sql = "Insert into DauSach " + "values  (N'"+dauSach.getTenSach()+"','"+dauSach.getNamSuatBan()+"','"+dauSach.getUrlAnh()+"',N'"+dauSach.getTheLoai()+"')";
             sttm.execute(sql);
             return true;
-        } catch (Exception ex) {
+        } catch (NamingException | SQLException ex) {
             System.out.print(ex);
         }
         return false;
     }
 
 	public List<String> getTheLoai() {
+        try {
+            InitialContext initContext = new InitialContext();
+            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+            Connection conn = ds.getConnection();
+            Statement sttm = conn.createStatement();
             String sql = "select distinct theLoai from DauSach";
             ResultSet rs=sttm.executeQuery(sql);
             ArrayList<String> result = new ArrayList<String>();

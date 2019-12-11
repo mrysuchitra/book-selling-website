@@ -34,8 +34,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Xác nhận</button>
             </div>
+            <%--
+            <% Object fileName = request.getAttribute("fileName");
+                request.setAttribute("fileName2", fileName); 
+            %>
+            --%>
         </form>
         <jsp:include page="footer.jsp"></jsp:include>
+        <%-- <% request.setAttribute("uploadObject", "DauSach"); %> --%>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

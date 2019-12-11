@@ -6,29 +6,25 @@
 package servlet;
 
 import entity.DauSach;
-import java.io.File;
+import entity.NguoiDung;
+import entity.QuyenSach;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Formatter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
-import services.DauSachService;
-import sessionBean.DauSachDAO;
-import taskHandling.fileUploadHandler;
+import services.QuyenSachService;
 
 /**
  *
  * @author 1920
  */
-public class addBook extends HttpServlet {
+public class addProduct extends HttpServlet {
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,7 +33,7 @@ public class addBook extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */  
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,10 +42,10 @@ public class addBook extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addBook</title>");            
+            out.println("<title>Servlet addProduct</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addBook at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet addProduct at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -67,8 +63,7 @@ public class addBook extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        
+        processRequest(request, response);
     }
 
     /**
@@ -83,25 +78,25 @@ public class addBook extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-              
-        String tenSach = request.getParameter("tenSach");
-        short namXuatBan = Short.parseShort((String)request.getParameter("namXuatBan"));
-        String theLoai = request.getParameter("theLoai");
-        String anhBia = request.getParameter("tenSach");
+        String tinhTrang = request.getParameter("tinhTrang");
+        Date date = new Date();
+        NguoiDung nguoiBan = new NguoiDung();
+        DauSach maDauSach = new DauSach();
+         
         
-        DauSach dauSach = new DauSach();
+        QuyenSach quyenSach = new QuyenSach();
+        quyenSach.setConHang(true);
+        quyenSach.setNgayDang(date);
+        quyenSach.setTinhTrang(tinhTrang);
+        quyenSach.setMaDauSach(maDauSach);
+        quyenSach.setNguoiBan(nguoiBan);
         
-        dauSach.setTenSach(tenSach);
-        dauSach.setNamSuatBan(namXuatBan);
-        dauSach.setTheLoai(theLoai);
-        dauSach.setUrlAnh("/image/" + anhBia + ".jpg");
-        
-        new DauSachService().create(dauSach);
+        new QuyenSachService().create(quyenSach);
         
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        //request.setAttribute("fileName", anhBia);
-        request.getRequestDispatcher("/addBookImage.jsp").forward(request, response);
+        request.getRequestDispatcher("/addProductImage.jsp").forward(request, response);
+        
     }
 
     /**

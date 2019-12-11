@@ -8,8 +8,15 @@ import sessionBean.AnhDAO;
 import sessionBean.QuyenSachDAO;
 import entity.Anh;
 import entity.QuyenSach;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ArrayList;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 /**
  *
  * @author tien.nh173399
@@ -43,6 +50,24 @@ public class QuyenSachService {
         }
         return null;
     }
-    
+     public boolean create(QuyenSach quyenSach){
+         try {
+            InitialContext initContext = new InitialContext();
+            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+            Connection conn = ds.getConnection();
+            Statement sttm = conn.createStatement();
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            String date = formatter.format(quyenSach.getNgayDang());
+
+            //String sql = "Insert into QuyenSach " + "values  ('"+quyenSach.getMaDauSach().getMaDauSach()+"','"+quyenSach.getNguoiBan().getUsername()+"','"+quyenSach.getNgayDang()+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
+            String sql = "Insert into QuyenSach " + "values  ('"+1+"','"+"sotour"+"','"+date+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
+            sttm.execute(sql);
+            return true;
+        } catch (NamingException | SQLException ex) {
+            System.out.print(ex);
+        }
+        return false;
+     }
     
 }
