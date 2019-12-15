@@ -3,29 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/sessionBean/AbstractSessionBean.java</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/addBook.java</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/addProduct.java</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/register.java</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/web/login.jsp</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/taskHandling/fileUploadHandler.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/book.jsp</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/register.jsp</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/services/UserService.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/book.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/services/DauSachService.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/WEB-INF/glassfish-resources.xml</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/conf/persistence.xml</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/addBook.jsp</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/conf/MANIFEST.MF</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/home.jsp</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/addProduct.jsp</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/services/QuyenSachService.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/services/ReviewSachService.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/home.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/WEB-INF/web.xml</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/entity/Anh.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/nbproject/build-impl.xml</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/entity/DaMua.java</file>
-            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/category.jsp</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/taskHandling/fileUploadHandler.java</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/web/addProductImage.jsp</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/services/DauSachService.java</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/login.java</file>
+            <file>file:/E:/BTL-CNPM-2/book-selling-web/src/java/servlet/logout.java</file>
             <file>file:/E:/BTL-CNPM-2/book-selling-web/web/addBookImage.jsp</file>
         </group>
     </open-files>
