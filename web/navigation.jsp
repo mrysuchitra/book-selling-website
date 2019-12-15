@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="/book-selling-web/addBook">Add book</a>
                         </li>
                         <%
                             if (session.getAttribute("username")!=null){

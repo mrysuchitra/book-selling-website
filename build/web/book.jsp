@@ -64,6 +64,10 @@
                                 <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                                 3.5 stars
                             </div>
+                                <form action="/book-selling-web/addProduct" method="post">
+                                    <input type="hidden" name="maDauSach" value="${book.getMaDauSach()}">  
+                                    <button class="btn btn-success form-control" type="submit">Sell one?</button>
+                                </form>
                         </div>
                         <div class="col-sm-8">
                             <div class=" card card-outline-secondary" style="overflow-y: scroll; height: 500px">
@@ -78,8 +82,7 @@
                                         <small class="text-muted">Posted by ${review.getNguoiDung().getTen()} on ${review.getNgayReview()}</small>
                                         <hr>            
                                     </c:forEach>
-
-
+                                    
                                 </div>
                             </div>
                             <div style="height:50px">
