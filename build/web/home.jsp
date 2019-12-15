@@ -35,7 +35,7 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">Book Store</h1>
         <div class="list-group">
 
         <c:forEach items="${theLoai}" var="cate">
@@ -82,9 +82,7 @@
                 <a href="/book-selling-web/book?id=${book.getMaDauSach()}">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-
-                      <a href="/book-selling-web/book?id=${book.getMaDauSach()}"><img class="card-img-top" src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
-
+                      <a href="/book-selling-web/book?id=${book.getMaDauSach()}"><img class="card-img-top" height=300 width =100 src="/book-selling-web/image?${book.getUrlAnh()}" alt=""></a>
                       <div class="card-body">
                         <h4 class="card-title">
                           <a href="/book-selling-web/book?id=${book.getMaDauSach()}">${book.getTenSach()}</a>

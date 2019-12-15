@@ -101,4 +101,32 @@ public class DauSachService {
         DauSach found = this.database.find(Integer.parseInt(id));
         return found;
     }
+  
+    public List<DauSach> search(String query){
+        try {
+            InitialContext initContext = new InitialContext();
+            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+            Connection conn = ds.getConnection();
+            Statement sttm = conn.createStatement();
+            String sql = "SELECT * FROM DauSach WHERE dbo.non_unicode_convert(tenSach) LIKE  '%' +dbo.non_unicode_convert(N'"+query+"')+ '%'";
+            //System.out.println(sql);
+            ResultSet rs=sttm.executeQuery(sql);
+            ArrayList<DauSach> result = new ArrayList<>();
+            while(rs.next()){
+                DauSach temp=new DauSach();
+                temp.setMaDauSach(Integer.parseInt(rs.getString("maDauSach")));
+                temp.setMoTa(rs.getString("moTa"));
+                temp.setNamSuatBan(rs.getShort("namSuatBan"));
+                temp.setTheLoai(rs.getString("theLoai"));
+                temp.setTenSach(rs.getString("tenSach"));
+                temp.setUrlAnh(rs.getString("urlAnh"));
+                result.add(temp);
+            }
+            return result;
+        } catch (Exception ex) {
+            System.out.print(ex);
+        }
+        return null;
+    }
+ 
 }

@@ -13,7 +13,13 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/book-selling-web/">Book Store</a>
+                <a class="navbar-brand col-lg-3" href="/book-selling-web/">Book Store</a>
+                <form class="col-lg-5 middle" action="/book-selling-web/search" method="get">
+                    <div class="row">
+                    <input class="form-control middle col-lg-9" type="text" name="query" placeholder="book name...">
+                    <button class="btn btn-outline-success my-2 my-sm-0 col-lg-3" type="submit">Search</button>
+                    </div>
+                </form>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,3 +49,4 @@
         </nav>
     </body>
 </html>
+

@@ -3,9 +3,11 @@
     Created on : 23-Nov-2019, 22:23:09
     Author     : tien.nh173399
 --%>
+<%@page import="java.util.List"%>
+<%@page import="entity.DauSach"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType = "text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,14 +37,12 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Book Store</h1>
+        <h1 class="my-4">Search for: ${query}</h1>
         <div class="list-group">
-
         <c:forEach items="${theLoai}" var="cate">
             <a href="/book-selling-web/category?category=${cate}" class="list-group-item">${cate}</a>
         </c:forEach>
           
-
         </div>
 
       </div>
@@ -50,32 +50,12 @@
 
       <div class="col-lg-9">
 
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+        <br>
+          <%
+              if(((List<DauSach>)request.getAttribute("allBook")).size()==0){
+                  out.print("<h4>No book founded!!!</h4>");
+              }
+              %>
 
         <div class="row">
             <c:forEach items="${allBook}" var="book">
@@ -88,7 +68,6 @@
                           <a href="/book-selling-web/book?id=${book.getMaDauSach()}">${book.getTenSach()}</a>
                         </h4>
                         <p>${book.getTheLoai()}</p>
-
                         <p class="card-text">${book.getMoTa()}</p>
                       </div>
                       <div class="card-footer">
@@ -116,7 +95,7 @@
   
   <!-- Bootstrap core JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

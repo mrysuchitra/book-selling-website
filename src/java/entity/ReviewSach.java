@@ -106,7 +106,7 @@ public class ReviewSach implements Serializable {
 
     public String getNgayReview() {
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        return df.format(ngayReview);
+        return df.format(this.ngayReview);
     }
 
     public void setNgayReview(Date ngayReview) {
