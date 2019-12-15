@@ -11,7 +11,10 @@ import java.sql.Statement;
 import java.util.List;
 import sessionBean.ReviewSachDAO;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
@@ -44,11 +47,23 @@ public class ReviewSachService {
             Statement sttm = conn.createStatement();
             //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             String sql = "Insert into reviewSach " + "values  ("+Integer.toString(review.getReviewSachPK().getMaDauSach())+",'"+review.getReviewSachPK().getNguoiReview()+"',"+review.getSoSao()+",N'"+review.getReview()+"','"+review.getNgayReview()+"')";
-            System.out.println(sql);
+            //System.out.println(sql);
             sttm.execute(sql);
             return true;
         } catch (Exception ex) {
-            System.out.print(ex);
+            try {
+                InitialContext initContext = new InitialContext();
+                DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+                Connection conn = ds.getConnection();
+                Statement sttm = conn.createStatement();
+                String sql="update reviewSach set review=N'"+review.getReview()+"', soSao="+review.getSoSao()+", ngayReview='"+review.getNgayReview()+"' where maDauSach="+Integer.toString(review.getReviewSachPK().getMaDauSach())+" and nguoiReview='"+review.getReviewSachPK().getNguoiReview()+"'";
+                //System.out.println(sql);
+                sttm.executeUpdate(sql);
+                return true;
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            
         }
         return false;
     }

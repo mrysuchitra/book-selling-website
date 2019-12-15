@@ -6,6 +6,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -101,8 +103,9 @@ public class QuyenSach implements Serializable {
         this.maQuyenSach = maQuyenSach;
     }
 
-    public Date getNgayDang() {
-        return ngayDang;
+    public String getNgayDang() {
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        return df.format(this.ngayDang);
     }
 
     public void setNgayDang(Date ngayDang) {

@@ -4,11 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/App_Data/NetBean/book-selling-web/web/book.jsp</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/entity/QuyenSach.java</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/entity/Anh.java</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/entity/ReviewSach.java</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/book.java</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/web/login.jsp</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/search.jsp</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/services/DauSachService.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/web/home.jsp</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/search.java</file>
         </group>
     </open-files>
 </project-private>

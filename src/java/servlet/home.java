@@ -14,11 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import services.DauSachService;
 import entity.DauSach;
 import java.util.List;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
  * @author tien.nh173399
  */
+@WebServlet(name = "search", urlPatterns = {"/search"})
 public class home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
