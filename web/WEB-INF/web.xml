@@ -26,6 +26,18 @@
         <servlet-class>servlet.image</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>addBook</servlet-name>
+        <servlet-class>servlet.addBook</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FileUploadHandler</servlet-name>
+        <servlet-class>taskHandling.fileUploadHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>servlet.addProduct</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>category</servlet-name>
         <servlet-class>servlet.category</servlet-class>
     </servlet>
@@ -68,6 +80,18 @@
     <servlet-mapping>
         <servlet-name>search</servlet-name>
         <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addBook</servlet-name>
+        <url-pattern>/addBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileUploadHandler</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

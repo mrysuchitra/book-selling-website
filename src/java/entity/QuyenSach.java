@@ -107,6 +107,11 @@ public class QuyenSach implements Serializable {
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         return df.format(this.ngayDang);
     }
+    
+    public Date getNgayDanginDate(){
+        return this.ngayDang;
+    }
+    
 
     public void setNgayDang(Date ngayDang) {
         this.ngayDang = ngayDang;

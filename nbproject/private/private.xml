@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/web/book.jsp</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/web/search.jsp</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/services/DauSachService.java</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/web/home.jsp</file>
-            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/search.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -8,10 +8,12 @@ package services;
 import entity.DauSach;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import sessionBean.DauSachDAO;
 import utils.VNCharacterUtils;
@@ -28,6 +30,22 @@ public class DauSachService {
     
     public List<DauSach> getAll(){
         return this.database.findAll();
+    }
+    
+    public boolean create(DauSach dauSach) {
+
+        try {
+            InitialContext initContext = new InitialContext();
+            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+            Connection conn = ds.getConnection();
+            Statement sttm = conn.createStatement();
+            String sql = "Insert into DauSach " + "values  (N'"+dauSach.getTenSach()+"','"+dauSach.getNamSuatBan()+"','"+dauSach.getUrlAnh()+"',N'"+dauSach.getTheLoai()+"')";
+            sttm.execute(sql);
+            return true;
+        } catch (NamingException | SQLException ex) {
+            System.out.print(ex);
+        }
+        return false;
     }
     
     public List<String> getTheLoai() {
