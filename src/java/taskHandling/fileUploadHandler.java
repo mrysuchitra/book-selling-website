@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.net.URLDecoder;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.Cookie;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -25,8 +27,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  * @author 1920
  */
 public class fileUploadHandler extends HttpServlet {
-    private final String UPLOAD_DIRECTORY_BOOK = "E:\\BTL_CNPM_image\\DauSach";
-    private final String UPLOAD_DIRECTORY_PRODUCT = "E:\\BTL_CNPM_image\\QuyenSach";
+    private final String UPLOAD_DIRECTORY_BOOK = "D:\\App_Data\\NetBean\\book-selling-web\\web\\image";
+    private final String UPLOAD_DIRECTORY_PRODUCT = UPLOAD_DIRECTORY_BOOK;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -89,9 +91,23 @@ public class fileUploadHandler extends HttpServlet {
                
                 for(FileItem item : multiparts){
                     if(!item.isFormField()){
-                        String name = new File(item.getName()).getName();
+                        String name="";
+                        Cookie[] cookies = request.getCookies();
+                        
+                        for (int i = 0; i < cookies.length; i++) {
+                            String temp=cookies[i].getName().toString();
+                            if (temp.equals("tenSach") || temp.equals("name") ){
+                              name=cookies[i].getValue();
+                              Cookie cookie=new Cookie(cookies[i].getName(),"");
+                              cookie.setMaxAge(0);
+                              response.addCookie(cookie);
+                              break;
+                          }
+                        }
+                        name=name+".jpg";
                         //Object name = request.getAttribute("fileName2");
                         //if(request.getAttribute("uploadObject").equals("DauSach")){
+                            System.out.print(UPLOAD_DIRECTORY_BOOK + File.separator + name);
                             item.write( new File(UPLOAD_DIRECTORY_BOOK + File.separator + name));
                         //}
                         //else if(request.getAttribute("uploadObject").equals("QuyenSach")){
@@ -103,6 +119,7 @@ public class fileUploadHandler extends HttpServlet {
                //File uploaded successfully
                request.setAttribute("message", "File Uploaded Successfully");
             } catch (Exception ex) {
+                System.out.println(ex);
                request.setAttribute("message", "File Upload Failed due to " + ex);
             }          
           
@@ -113,7 +130,7 @@ public class fileUploadHandler extends HttpServlet {
      
         //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(request.getContextPath()+"/home");
         //dispatcher.forward(request, response);
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
+        response.sendRedirect("/book-selling-web");
     }
 
     /**

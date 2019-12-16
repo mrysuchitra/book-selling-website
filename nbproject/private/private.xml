@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/taskHandling/fileUploadHandler.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/image.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/services/QuyenSachService.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/addProduct.java</file>
+        </group>
     </open-files>
 </project-private>

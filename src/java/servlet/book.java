@@ -59,7 +59,7 @@ public class book extends HttpServlet {
 
             List<QuyenSach> allQuyenSach = quyenSachService.getQuyenSach(Integer.toString(dauSach.getMaDauSach()));
             for (QuyenSach q: allQuyenSach){
-            System.out.println(q);
+            //System.out.println(q);
             }         
             request.setAttribute("quyenSach", allQuyenSach);
 
@@ -109,7 +109,7 @@ public class book extends HttpServlet {
             ReviewSachPK reviewPk = new ReviewSachPK(Integer.parseInt(maDauSach), session.getAttribute("username").toString());
             Date date=new Date();
             ReviewSach review = new ReviewSach(reviewPk, 5, inputReview, date);
-            System.out.println(reviewSachService.create(review));
+            //System.out.println(reviewSachService.create(review));
             response.sendRedirect("book?id="+maDauSach);       
         }
     }

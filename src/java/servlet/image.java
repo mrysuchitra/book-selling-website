@@ -30,6 +30,7 @@ public class image extends HttpServlet {
       
       String url=req.getQueryString();
       // Get the absolute path of the image
+      url=url.replaceAll("%20", " ");
       String filename = cntx.getRealPath(url);
       // retrieve mimeType dynamically
       String mime = cntx.getMimeType(filename);

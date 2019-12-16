@@ -86,7 +86,7 @@ public class addBook extends HttpServlet {
         dauSach.setUrlAnh("/image/" + anhBia + ".jpg");
         
         new DauSachService().create(dauSach);
-        
+        request.setAttribute("tenSach", tenSach);
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         //request.setAttribute("fileName", anhBia);

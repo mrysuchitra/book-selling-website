@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="javax.servlet.http.Cookie"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,6 +31,11 @@
             <div class="container">
             <div class="form-group">
               <label for="anhBia">Ảnh bìa</label>
+              <%
+                 
+                  response.addCookie(new Cookie("tenSach",request.getAttribute("tenSach").toString()));
+              %>
+<!--              <input type="hidden" name="tenSach" value="${tenSach}">-->
               <input type="file" class="form-control" id="anhBia" name="anhBia">
             </div>
             <button type="submit" class="btn btn-primary">Xác nhận</button>

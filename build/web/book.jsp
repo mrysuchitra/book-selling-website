@@ -64,7 +64,7 @@
                                 <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                                 3.5 stars
                             </div>
-                                <form action="/book-selling-web/addProduct" method="post">
+                                <form action="/book-selling-web/addProduct" method="get">
                                     <input type="hidden" name="maDauSach" value="${book.getMaDauSach()}">  
                                     <button class="btn btn-success form-control" type="submit">Sell one?</button>
                                 </form>

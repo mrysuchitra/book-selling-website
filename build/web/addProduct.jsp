@@ -36,6 +36,7 @@
                         <option value="Khá">Khá</option>
                         <option value="Cũ">Cũ</option>
                     </select>
+                    <input type="hidden" name="maDauSach" value="${maDauSach}">
                 </div>
                 <button type="submit" class="btn btn-primary">Xác nhận</button>
             </div>

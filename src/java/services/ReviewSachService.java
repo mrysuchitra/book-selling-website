@@ -47,7 +47,7 @@ public class ReviewSachService {
             Statement sttm = conn.createStatement();
             //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             String sql = "Insert into reviewSach " + "values  ("+Integer.toString(review.getReviewSachPK().getMaDauSach())+",'"+review.getReviewSachPK().getNguoiReview()+"',"+review.getSoSao()+",N'"+review.getReview()+"','"+review.getNgayReview()+"')";
-            //System.out.println(sql);
+            System.out.println(sql);
             sttm.execute(sql);
             return true;
         } catch (Exception ex) {

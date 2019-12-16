@@ -10,6 +10,7 @@ import entity.NguoiDung;
 import entity.QuyenSach;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
@@ -17,7 +18,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import services.DauSachService;
 import services.QuyenSachService;
+import services.UserService;
 
 /**
  *
@@ -38,6 +41,13 @@ public class addProduct extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            if(request.getSession().getAttribute("username")==null){
+                response.sendRedirect("login?err=2");
+                return;
+            }
+            String url=URLDecoder.decode(request.getQueryString(),"UTF-8");
+            String id=url=url.substring(url.indexOf('=')+1,url.length());
+            request.setAttribute("maDauSach", id);
             request.getRequestDispatcher("/addProduct.jsp").forward(request, response);
         }
     }
@@ -71,19 +81,26 @@ public class addProduct extends HttpServlet {
         //processRequest(request, response);
         String tinhTrang = request.getParameter("tinhTrang");
         Date date = new Date();
-        NguoiDung nguoiBan = new NguoiDung();
-        DauSach maDauSach = new DauSach();
+        if(request.getSession().getAttribute("username")==null){
+            response.sendRedirect("login?err=2");
+        }
+        
+        UserService userService=new UserService();
+        NguoiDung nguoiBan = userService.findByUsername(request.getSession().getAttribute("username").toString());
+        DauSachService dauSachService=new DauSachService();
+        DauSach dauSach = dauSachService.getById(request.getParameter("maDauSach").toString());
          
         
         QuyenSach quyenSach = new QuyenSach();
         quyenSach.setConHang(true);
         quyenSach.setNgayDang(date);
         quyenSach.setTinhTrang(tinhTrang);
-        quyenSach.setMaDauSach(maDauSach);
+        quyenSach.setMaDauSach(dauSach);
         quyenSach.setNguoiBan(nguoiBan);
         
-        new QuyenSachService().create(quyenSach);
+        (new QuyenSachService()).create(quyenSach);
         
+        request.setAttribute("name",dauSach.getMaDauSach().toString()+"-"+nguoiBan.getUsername());
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         request.getRequestDispatcher("/addProductImage.jsp").forward(request, response);

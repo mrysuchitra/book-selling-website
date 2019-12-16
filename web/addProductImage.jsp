@@ -25,7 +25,11 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <form  action="<%=request.getContextPath()%>/upload" method="POST" enctype="multipart/form-data" >
+            <%
+                 
+                  response.addCookie(new Cookie("name",request.getAttribute("name").toString()));
+              %>
+            <form  action="<%=request.getContextPath()%>/upload" method="POST" enctype="multipart/form-data" >
             <div class="container">
             <div class="form-group">
               <label for="anhBia">Ảnh</label>

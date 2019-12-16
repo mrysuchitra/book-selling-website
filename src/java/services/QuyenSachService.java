@@ -9,8 +9,10 @@ import sessionBean.QuyenSachDAO;
 import entity.Anh;
 import entity.QuyenSach;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ArrayList;
@@ -61,10 +63,22 @@ public class QuyenSachService {
             String date = quyenSach.getNgayDang();
 
             //String sql = "Insert into QuyenSach " + "values  ('"+quyenSach.getMaDauSach().getMaDauSach()+"','"+quyenSach.getNguoiBan().getUsername()+"','"+quyenSach.getNgayDang()+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
-            String sql = "Insert into QuyenSach " + "values  ('"+1+"','"+"sotour"+"','"+date+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
+            String sql = "Insert into QuyenSach (madauSach, nguoiBan, ngaydang, tinhtrang, conhang)" + "values  ("+quyenSach.getMaDauSach().getMaDauSach().toString()+",'"+quyenSach.getNguoiBan().getUsername()+"','"+date+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
+            System.out.println(sql);
             sttm.execute(sql);
+            sql="select * from QuyenSach where NgayDang='"+date +"'";
+            ResultSet rs=sttm.executeQuery(sql);
+            while(rs.next()){
+                sql = "insert into anh values ('/image/"+quyenSach.getMaDauSach().getMaDauSach().toString()+"-"+quyenSach.getNguoiBan().getUsername()+".jpg',"+Integer.toString(rs.getInt("maQuyenSach"))+")";
+                System.out.println(sql);
+                sttm.execute(sql);
+                break;
+            }
+            
+                
+            
             return true;
-        } catch (NamingException | SQLException ex) {
+        } catch (Exception ex) {
             System.out.print(ex);
         }
         return false;
