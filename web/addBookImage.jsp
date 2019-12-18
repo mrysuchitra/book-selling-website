@@ -27,7 +27,8 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <form  action="<%=request.getContextPath()%>/upload" method="POST" enctype="multipart/form-data" >
+        <br>
+        <form  class=" mt-5" action="<%=request.getContextPath()%>/upload" method="POST" enctype="multipart/form-data" >
             <div class="container">
             <div class="form-group">
               <label for="anhBia">Ảnh bìa</label>
@@ -46,7 +47,9 @@
             %>
             --%>
         </form>
+        <div class="fixed-bottom">
         <jsp:include page="footer.jsp"></jsp:include>
+        </div>
         <%-- <% request.setAttribute("uploadObject", "DauSach"); %> --%>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

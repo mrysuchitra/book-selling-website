@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/taskHandling/fileUploadHandler.java</file>
             <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/image.java</file>
+            <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/addBook.java</file>
             <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/services/QuyenSachService.java</file>
             <file>file:/D:/App_Data/NetBean/book-selling-web/src/java/servlet/addProduct.java</file>
         </group>

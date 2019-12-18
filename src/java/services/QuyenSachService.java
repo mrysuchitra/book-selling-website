@@ -64,12 +64,12 @@ public class QuyenSachService {
 
             //String sql = "Insert into QuyenSach " + "values  ('"+quyenSach.getMaDauSach().getMaDauSach()+"','"+quyenSach.getNguoiBan().getUsername()+"','"+quyenSach.getNgayDang()+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
             String sql = "Insert into QuyenSach (madauSach, nguoiBan, ngaydang, tinhtrang, conhang)" + "values  ("+quyenSach.getMaDauSach().getMaDauSach().toString()+",'"+quyenSach.getNguoiBan().getUsername()+"','"+date+"',N'"+quyenSach.getTinhTrang()+"','"+quyenSach.getConHang()+"')";
-            System.out.println(sql);
+            //System.out.println(sql);
             sttm.execute(sql);
             sql="select * from QuyenSach where NgayDang='"+date +"'";
             ResultSet rs=sttm.executeQuery(sql);
             while(rs.next()){
-                sql = "insert into anh values ('/image/"+quyenSach.getMaDauSach().getMaDauSach().toString()+"-"+quyenSach.getNguoiBan().getUsername()+".jpg',"+Integer.toString(rs.getInt("maQuyenSach"))+")";
+                //sql = "insert into anh values ('/image/"+quyenSach.getMaDauSach().getMaDauSach().toString()+"-"+quyenSach.getNguoiBan().getUsername()+".jpg',"+Integer.toString(rs.getInt("maQuyenSach"))+")";
                 System.out.println(sql);
                 sttm.execute(sql);
                 break;
@@ -83,4 +83,41 @@ public class QuyenSachService {
         }
         return false;
      }
+
+    public List<QuyenSach> getQuyenSachByUsername(String username) {
+        try{
+        InitialContext initContext = new InitialContext();
+        DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+        Connection conn = ds.getConnection();
+        Statement sttm = conn.createStatement();
+        List<QuyenSach> allBook=new ArrayList<>();
+        String sql="select * from QuyenSach where nguoiBan='"+username+"'";
+        System.out.println(sql);
+        ResultSet rs=sttm.executeQuery(sql);
+        while(rs.next()){
+            QuyenSach quyenSach=new QuyenSach();
+            quyenSach=this.quyenSachDB.find(rs.getInt("maQuyenSach"));
+            System.out.println(quyenSach);
+            allBook.add(quyenSach);
+        }
+        return allBook;
+        } catch (Exception ex) {
+            System.out.print(ex);
+        }
+        return null;
+    }
+
+    public void sold(String maQuyenSach) {
+         try{
+        InitialContext initContext = new InitialContext();
+        DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
+        Connection conn = ds.getConnection();
+        Statement sttm = conn.createStatement();
+        String sql="update QuyenSach set conHang=0 where  maQuyenSach="+maQuyenSach;
+        System.out.println(sql);
+        System.out.println(sttm.executeUpdate(sql));
+        } catch (Exception ex) {
+            System.out.print(ex);
+        }
+    }
 }

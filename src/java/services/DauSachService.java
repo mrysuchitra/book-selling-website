@@ -39,7 +39,7 @@ public class DauSachService {
             DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/bookStore");
             Connection conn = ds.getConnection();
             Statement sttm = conn.createStatement();
-            String sql = "Insert into DauSach (tenSach, namSuatBan, urlAnh, theLoai) " + "values  (N'"+dauSach.getTenSach()+"','"+dauSach.getNamSuatBan()+"','"+dauSach.getUrlAnh()+"',N'"+dauSach.getTheLoai()+"')";
+            String sql = "Insert into DauSach (tenSach, namSuatBan, urlAnh, theLoai, moTa) " + "values  (N'"+dauSach.getTenSach()+"','"+dauSach.getNamSuatBan()+"','"+dauSach.getUrlAnh()+"',N'"+dauSach.getTheLoai()+"','"+dauSach.getMoTa()+"')";
             System.out.println(sql);
             sttm.execute(sql);
             return true;

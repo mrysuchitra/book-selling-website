@@ -19,15 +19,15 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <div class="container">
+        <div class="container mt-5">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
+            <h5 class="card-title text-center">Login</h5>
             <form class="form-signin" action="<%=request.getContextPath()%>/login" method="POST">
               <div class="form-label-group">
-                <label for="inputUsername">Email address</label>
+                <label for="inputUsername">Username</label>
                 <input id="inputUsername" name="username"class="form-control" placeholder="Username" required autofocus>
               </div>
 

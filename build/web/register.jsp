@@ -18,7 +18,7 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <div class="container">
+        <div class="container mt-5">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
@@ -44,11 +44,11 @@
                 <input id="name" name="name"class="form-control" placeholder="Name" required autofocus>
               </div>
               <div class="form-label-group">
-              <label for="address">Chọn thành phố bạn đang sống</label>
+              <label for="address">where do you live?</label>
                 <select class="mdb-select md-form" id="address" name="address">
-                  <option value="Hà Nội">Hà Nội</option>
-                  <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                  <option value="Đà Nẵng">Đà Nẵng</option>
+                  <option value="Ha Noi">Hà Nội</option>
+                  <option value="Da Nang">Hồ Chí Minh</option>
+                  <option value="Ho Chi Minh">Đà Nẵng</option>
                 </select>
               </div>
               <div class="form-label-group">
@@ -63,7 +63,8 @@
                         out.print("<h5 style=\"color: red;\">Something went wrong, please try again!</h5>");
                 }
                 %>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
             
             </form>
                            <hr class="my-4">

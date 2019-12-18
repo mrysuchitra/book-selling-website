@@ -34,24 +34,44 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <form  action="<%=request.getContextPath()%>/addBook" method="POST" >
+        <br>
+        <form  action="<%=request.getContextPath()%>/addBook" method="POST" class=" mt-5">
             <div class="container">
             <div class="form-group">
-              <label for="tenSach">Tên sách</label>
+              <label for="tenSach">Book's name</label>
               <input type="text" class="form-control" id="tenSach" placeholder="Nhập tên sách" name="tenSach">
             </div>
             <div class="form-group">
-              <label for="namXuatBan">Năm xuất bản</label>
+              <label for="namXuatBan">Public year</label>
               <input type="text" class="form-control" id="namXuatBan" placeholder="Năm xuất bản" name="namXuatBan">
             </div>
+                <div class="form-label-group">
+              <label for="address">Category</label>
+                <select class="mdb-select md-form" id="address" name="theLoai">
+                  <option value="Fiction">Fiction</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Short Story">Short Story</option>
+                  <option value="Humor">Humor</option>
+                  <option value="Mystery">Mystery</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Self-help Book">Self-help Book</option>
+                  <option value="Poetry">Poetry</option>
+                  <option value="Short Story">Short Story</option>
+                </select>
+              </div>
             <div class="form-group">
-              <label for="theLoai">Thể loại</label>
-              <input type="text" class="form-control" id="theLoai" placeholder="Thể loại" name="theLoai">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="In English please..." name="description">
             </div>
             <button type="submit" class="btn btn-primary">Xác nhận</button>
             </div>
         </form>
+            <div class="fixed-bottom">
         <jsp:include page="footer.jsp"></jsp:include>
+            </div>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

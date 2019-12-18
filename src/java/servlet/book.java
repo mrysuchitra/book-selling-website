@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -58,10 +59,13 @@ public class book extends HttpServlet {
             request.setAttribute("book", dauSach);
 
             List<QuyenSach> allQuyenSach = quyenSachService.getQuyenSach(Integer.toString(dauSach.getMaDauSach()));
+            List<QuyenSach> temp= new ArrayList<>();
             for (QuyenSach q: allQuyenSach){
-            //System.out.println(q);
+                if(q.getConHang()){
+                    temp.add(q);
+                }
             }         
-            request.setAttribute("quyenSach", allQuyenSach);
+            request.setAttribute("quyenSach", temp);
 
             List<ReviewSach> allReview = reviewSachService.getReview(Integer.toString(dauSach.getMaDauSach()));
             request.setAttribute("allReview", allReview);
@@ -104,12 +108,12 @@ public class book extends HttpServlet {
 
             String inputReview = request.getParameter("inputReview");
             String maDauSach = request.getParameter("bookId");
-
+            //System.out.println(inputReview);
             ReviewSachService reviewSachService = new ReviewSachService();
             ReviewSachPK reviewPk = new ReviewSachPK(Integer.parseInt(maDauSach), session.getAttribute("username").toString());
             Date date=new Date();
             ReviewSach review = new ReviewSach(reviewPk, 5, inputReview, date);
-            //System.out.println(reviewSachService.create(review));
+            reviewSachService.create(review);
             response.sendRedirect("book?id="+maDauSach);       
         }
     }

@@ -43,8 +43,8 @@
             <jsp:include page="navigation.jsp"></jsp:include>
                 <br>
                 <!-- Page Content -->
-                <div class="container">
-
+                <div class="container mt-5">
+                
                 <div class="row mh-25">
 
                     <div class="col-sm-3">
@@ -144,7 +144,7 @@
                                     + "<p> phone: " + nguoiDang.getSoDienThoai() + "</p>"
                                     + "<p> address: " + nguoiDang.getDiaChi() + "</p></div>"
                                     + "<div class=\"modal-footer\"> <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>"
-                                    + "</div></div></div> </div></div></div></div></div>");
+                                    + "</div></div></div> </div></div></div></div></div><br>");
                         }
                     } catch (Exception ex) {
                     }

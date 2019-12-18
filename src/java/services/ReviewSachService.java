@@ -57,7 +57,7 @@ public class ReviewSachService {
                 Connection conn = ds.getConnection();
                 Statement sttm = conn.createStatement();
                 String sql="update reviewSach set review=N'"+review.getReview()+"', soSao="+review.getSoSao()+", ngayReview='"+review.getNgayReview()+"' where maDauSach="+Integer.toString(review.getReviewSachPK().getMaDauSach())+" and nguoiReview='"+review.getReviewSachPK().getNguoiReview()+"'";
-                //System.out.println(sql);
+                System.out.println(sql);
                 sttm.executeUpdate(sql);
                 return true;
             } catch (Exception e) {

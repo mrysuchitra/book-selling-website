@@ -5,30 +5,24 @@
  */
 package servlet;
 
-import entity.DauSach;
-import java.io.File;
+import entity.QuyenSach;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
-import services.DauSachService;
-import sessionBean.DauSachDAO;
-import taskHandling.fileUploadHandler;
+import javax.servlet.http.HttpSession;
+import services.QuyenSachService;
 
 /**
  *
- * @author 1920
+ * @author tien.nh173399
  */
-public class addBook extends HttpServlet {
+public class user extends HttpServlet {
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,11 +31,33 @@ public class addBook extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */  
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/addBook.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession();
+            if (session.getAttribute("username") == null) {
+                response.sendRedirect("login?err=2");
+                return;
+            }
+                        QuyenSachService quyenSachService = new QuyenSachService();
+
+            List<QuyenSach> allQuyenSach = quyenSachService.getQuyenSachByUsername(session.getAttribute("username").toString());
+            List<QuyenSach> available= new ArrayList<>();
+            List<QuyenSach> sold= new ArrayList<>();
+            for (QuyenSach q: allQuyenSach){
+                if(q.getConHang()){
+                    available.add(q);
+                }else{
+                    sold.add(q);
+                }
+            }         
+            request.setAttribute("available", available);
+            request.setAttribute("sold", sold);
+            request.getRequestDispatcher("/user.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,7 +73,6 @@ public class addBook extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /**
@@ -71,26 +86,15 @@ public class addBook extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-              
-        String tenSach = request.getParameter("tenSach");
-        short namXuatBan = Short.parseShort((String)request.getParameter("namXuatBan"));
-        String theLoai = request.getParameter("theLoai");
-        String anhBia = request.getParameter("tenSach");
-        String moTa = request.getParameter("description");
-        DauSach dauSach = new DauSach();
-        
-        dauSach.setTenSach(tenSach);
-        dauSach.setNamSuatBan(namXuatBan);
-        dauSach.setTheLoai(theLoai);
-        dauSach.setUrlAnh("/image/" + anhBia + ".jpg");
-        dauSach.setMoTa(moTa);
-        new DauSachService().create(dauSach);
-        request.setAttribute("tenSach", tenSach);
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("utf-8");
-        //request.setAttribute("fileName", anhBia);
-        request.getRequestDispatcher("/addBookImage.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("username") == null) {
+            response.sendRedirect("login?err=2");
+        } else {
+            String maQuyenSach=request.getParameter("maQuyenSach");
+            QuyenSachService quyenSachService=new QuyenSachService();
+            quyenSachService.sold(maQuyenSach);
+            response.sendRedirect("user?tab=sold");       
+        }
     }
 
     /**

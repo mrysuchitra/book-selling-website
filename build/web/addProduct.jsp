@@ -25,23 +25,26 @@
     </head>
     <body>
         <jsp:include page="navigation.jsp"></jsp:include>
-        <form  action="<%=request.getContextPath()%>/addProduct" method="POST" >
+        <br>
+        <form  action="<%=request.getContextPath()%>/addProduct" method="POST" class=" mt-5">
             <div class="container">
                 <div class="form-label-group">
                     <label for="address">Tình trạng sản phẩm</label>
                     <select class="mdb-select md-form" id="tinhTrang" name="tinhTrang">
-                        <option value="Mới">Mới</option>
-                        <option value="Như mới">Như mới</option>
-                        <option value="Tốt">Tốt</option>
-                        <option value="Khá">Khá</option>
-                        <option value="Cũ">Cũ</option>
+                        <option value="Brand New">Brand New</option>
+                        <option value="Like new">Like new</option>
+                        <option value="Till good">Till good</option>
+                        <option value="Quite old">Quite old</option>
+                        <option value="Old">Old</option>
                     </select>
                     <input type="hidden" name="maDauSach" value="${maDauSach}">
                 </div>
                 <button type="submit" class="btn btn-primary">Xác nhận</button>
             </div>
         </form>
+        <div class="fixed-bottom">
         <jsp:include page="footer.jsp"></jsp:include>
+        </div>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

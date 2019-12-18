@@ -29,7 +29,8 @@
                  
                   response.addCookie(new Cookie("name",request.getAttribute("name").toString()));
               %>
-            <form  action="<%=request.getContextPath()%>/upload" method="POST" enctype="multipart/form-data" >
+              <br>
+              <form  class = " mt-5" action="<%=request.getContextPath()%>/upload" method="POST" enctype="multipart/form-data" >
             <div class="container">
             <div class="form-group">
               <label for="anhBia">Ảnh</label>
@@ -38,7 +39,9 @@
             <button type="submit" class="btn btn-primary">Xác nhận</button>
             </div>
         </form>
+        <div class="fixed-bottom">
         <jsp:include page="footer.jsp"></jsp:include>
+        </div>
         <%-- <% request.setAttribute("uploadObject", "QuyenSach"); %> --%>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

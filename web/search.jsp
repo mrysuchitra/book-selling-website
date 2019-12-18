@@ -30,8 +30,8 @@
 <body>
   <!-- Navigation -->
   <jsp:include page="navigation.jsp"></jsp:include>
-
-  <div class="container">
+  <br>
+  <div class="container mt-5">
 
     <div class="row">
 
