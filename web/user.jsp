@@ -5,12 +5,13 @@
 --%>
 
 
+<%@page import="entity.DauSach"%>
 <%@page import="entity.Anh"%>
 <%@page import="entity.NguoiDung"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.QuyenSach"%>
-<%@page import="entity.QuyenSach"%>
+<%@page import="services.DauSachService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,11 +61,14 @@
                 
                 
                 <%
-                    ArrayList<QuyenSach> allQuyenSach = (ArrayList<QuyenSach>) request.getAttribute(request.getParameter("tab").toString());
+                    String tab=request.getParameter("tab").toString();
+                    if(tab==null) {tab="available";}
+                    ArrayList<QuyenSach> allQuyenSach = (ArrayList<QuyenSach>) request.getAttribute(tab);
                     try {
                         for (QuyenSach quyenSach : allQuyenSach) {
                             Iterator iterator = quyenSach.getAnhCollection().iterator();
                             String urlAnh;
+                            String tenSach=quyenSach.getMaDauSach().getTenSach();
                             if (iterator.hasNext()) {
                                 urlAnh = ((Anh) iterator.next()).getTenAnh();
                             } else {
@@ -73,13 +77,15 @@
                             out.print(
                                     "<div class=\"card\"><div class=\"row\"><img class=\"img-fluid z col-3\" width=\"100\" height=\"100\" src=\"/book-selling-web/image?"
                                     +urlAnh
-                                    +"\"><div class=\"container col-sm-9\"><p class=\"row\">Condition: "
+                                    +"\"><div class=\"container col-sm-9\"><h4 class=\"row\">"
+                                    +tenSach
+                                    +"</h4><p class=\"row\">Condition: "
                                     +quyenSach.getTinhTrang()
                                     + "</p><p class=\"position-relative\" style=\"left: 0px; bottom: 0px\">"
                                     +quyenSach.getNgayDang()
                                     +"</p><div class=\"float-right\">"
                             );
-                            if(request.getParameter("tab").toString().equals("available")){
+                            if(tab.equals("available")){
                                 out.print(
                                     "<form action=\"/book-selling-web/user\" method=\"post\"> <input  type=\"hidden\"  name=\"maQuyenSach\" value=\""
                                     +quyenSach.getMaQuyenSach().toString()

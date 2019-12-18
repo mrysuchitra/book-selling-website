@@ -56,7 +56,10 @@ public class user extends HttpServlet {
             }         
             request.setAttribute("available", available);
             request.setAttribute("sold", sold);
-            request.getRequestDispatcher("/user.jsp").forward(request, response);
+            
+            response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
+        request.getRequestDispatcher("/user.jsp").forward(request, response);
         }
     }
 

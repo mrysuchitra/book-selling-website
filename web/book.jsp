@@ -133,7 +133,7 @@
                             out.print("<div class=\"card\"><div class=\"row\">"
                                     + "<img class=\"img-fluid z col-3\" width=\"100\" height=\"100\" style=\"hover: { transform: scale(1.2);}\" src=\"/book-selling-web/image?" + urlAnh + " \"> "
                                     + "<div class=\"container col-sm-9\">"
-                                    + "<h5 class=\"row\">Seller:" + nguoiBan + "</h5>"
+                                    + "<a href=\"/book-selling-web/user?tab=available\"><h5 class=\"row\">Seller:" + nguoiBan + "</h5></a>"
                                     + "<p class=\"row\">Condition: " + moTa + "</p>"
                                     + "<p class=\"position-relative\" style=\"left: 0px; bottom: 0px\">" + ngay + "</p>"
                                     + "<div class=\"float-right\"><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#" + Integer.toString(quyenSach.getMaQuyenSach()) + "\">Get contact</button>"

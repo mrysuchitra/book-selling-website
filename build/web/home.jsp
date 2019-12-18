@@ -37,7 +37,6 @@
 
         <h1 class="my-4">Book Store</h1>
         <div class="list-group">
-            ${theLoai}
         <c:forEach items="${theLoai}" var="cate">
             <a href="/book-selling-web/category?category=${cate}" class="list-group-item">${cate}</a>
         </c:forEach>

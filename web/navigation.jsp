@@ -35,7 +35,7 @@
                         </li>
                         <%
                             if (session.getAttribute("username")!=null){
-                                out.println("<li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">"+session.getAttribute("name")+"</a></li>");
+                                out.println("<li class=\"nav-item\"> <a class=\"nav-link\" href=\"/book-selling-web/user?tab=available\">"+session.getAttribute("name")+"</a></li>");
                                 out.println("<li class=\"nav-item\"> <a class=\"nav-link\" href=\"/book-selling-web/logout\">Logout</a></li>");
                             }
                             else{
