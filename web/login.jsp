@@ -45,7 +45,7 @@
                 if ("1".equals(err)) {
                         out.print("<h5 style=\"color: red;\">wrong email or password</h5>");
                 }else if("2".equals(err)){
-                    out.print("<h5 style=\"color: red;\">Please login fisrt!</h5>");
+                    out.print("<h5 style=\"color: red;\">Please login first!</h5>");
                 }
                 %>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
